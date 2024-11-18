@@ -1,9 +1,3 @@
-@supports (mix-blend-mode: hard-light) {
-  .img_text {
-    mix-blend-mode: hard-light;
-  }
-}
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -133,6 +127,7 @@
 }
 
 .card_img {
+  z-index: -1;
   width: 100%;
 }
 
@@ -145,6 +140,7 @@
   color: var(--main-color);
   top: 25px;
   right: 25px;
+  z-index: 1;
   mix-blend-mode: hard-light;
   text-shadow: 0 1px 0 var(--main-background), 1px 0 0 var(--main-background),
     0 -1px 0 var(--main-background), -1px 0 0 var(--main-background),
@@ -422,3 +418,16 @@ dialog::backdrop {
     align-items: center;
   }
 }
+
+@supports (mix-blend-mode: hard-light) {
+  .img_text {
+    mix-blend-mode: hard-light;
+  }
+}
+/* @supports((text-stroke: 1px var(--main-background)) or (-webkit-text-stroke: 1px var(--main-background))) {
+    .img_text {
+        -webkit-text-stroke: 1px var(--main-background);
+        text-stroke: 1px var(--main-background);
+        text-shadow: none;
+    }
+} */
