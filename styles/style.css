@@ -365,7 +365,6 @@ dialog::backdrop {
 }
 
 .dialof_form {
-  inline-size: fill-available;
   inline-size: -webkit-fill-available;
 }
 
