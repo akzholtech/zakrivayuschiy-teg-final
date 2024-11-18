@@ -424,10 +424,10 @@ dialog::backdrop {
     mix-blend-mode: hard-light;
   }
 }
-/* @supports((text-stroke: 1px var(--main-background)) or (-webkit-text-stroke: 1px var(--main-background))) {
+@supports((text-stroke: 1px var(--main-background)) or (-webkit-text-stroke: 1px var(--main-background))) {
     .img_text {
         -webkit-text-stroke: 1px var(--main-background);
         text-stroke: 1px var(--main-background);
         text-shadow: none;
     }
-} */
+}
