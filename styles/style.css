@@ -40,6 +40,8 @@
 
 .header_logo {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  display: block;
+  text-align: center;
   margin-block-end: 20px;
 }
 
@@ -73,7 +75,7 @@
   background: transparent;
   text-transform: uppercase;
   color: var(--main-color);
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, width 0.3s;
 }
 
 .layout_whth {
@@ -108,7 +110,6 @@
 }
 .theme-menu__button:focus-visible::after {
   width: 100%;
-  transition: width 0.3s;
 }
 .card {
   color: var(--main-color);
@@ -188,20 +189,6 @@
   padding: 0;
 }
 
-.card__like-button:focus-visible::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 0%;
-  margin-bottom: -2px;
-  background: var(--main-color);
-  opacity: 0.6;
-  animation: focus 0.3s linear forwards;
-}
-
 .button__text {
   font-family: var(--accent-font-family), "fantasy";
   font-size: 14px;
@@ -232,7 +219,12 @@
   z-index: 1;
 }
 
-.card__like-save:focus {
+.card__like-save:focus,
+.card__icon-button:focus .like-icon:focus {
+  outline: none;
+}
+
+.card__like-save:focus-visible {
   box-shadow: 2px 2px 0 var(--main-color);
   transition: box-shadow 0.3s;
 }
@@ -243,24 +235,28 @@
 }
 .card__icon-button:active .core {
   fill: var(--sparks);
-  transition: fill 0.3s 0.05s ease-out;
+  transition: fill 0.3s ease-out;
 }
 
 .like-icon {
   border: none;
   background: transparent;
 }
-.like-icon:focus,
+
 .like-icon:focus-visible {
   outline: none;
   padding: 5.5px;
   border: 2px solid var(--main-color);
 }
 
-.like-icon.is-liked .main-body,
-.like-icon.is-liked .core {
+.like-icon.is-liked .main-body {
   fill: var(--sparks);
   transition: fill 0.3s 0.05s ease-out;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--sparks);
+  transition: fill 0.3s 0.06s ease-out;
 }
 .like-icon.is-liked .contour {
   fill: var(--sparks);
@@ -272,7 +268,7 @@
 }
 .like-icon.is-liked .core {
   fill: var(--sparks);
-  transition: fill 0.3s 0.06s ease-out;
+  transition: fill 0.3s ease-out;
 }
 
 .sparks {
@@ -287,9 +283,6 @@
   background-color: transparent;
 }
 
-.card__icon-button:focus {
-  outline: none;
-}
 .card__icon-button:focus-visible {
   outline: none;
   border: 2px solid var(--main-color);
@@ -324,7 +317,6 @@
 
 .dialog {
   inline-size: clamp(21.3125rem, 21.0625rem + 1.1111vw, 22.0625rem);
-  block-size: 191px;
 }
 
 .dialog[open] {
@@ -334,7 +326,7 @@
   align-items: center;
   gap: 30px;
   padding: 30px;
-  overflow: hidden;
+  border: 2px solid var(--main-color);
 }
 
 .dialog_title {
@@ -352,6 +344,7 @@
 
 .dialog_title-text {
   display: inline-block;
+  text-transform: uppercase;
   line-height: 21px;
 }
 
@@ -369,6 +362,7 @@ dialog::backdrop {
   font-size: 14px;
   padding-block: 15px;
   cursor: pointer;
+  color: var(--main-color);
   background: var(--accent-color);
   border: 2px solid var(--main-color);
   position: relative;
@@ -424,10 +418,13 @@ dialog::backdrop {
     mix-blend-mode: hard-light;
   }
 }
-@supports((text-stroke: 1px var(--main-background)) or (-webkit-text-stroke: 1px var(--main-background))) {
-    .img_text {
-        -webkit-text-stroke: 1px var(--main-background);
-        text-stroke: 1px var(--main-background);
-        text-shadow: none;
-    }
+@supports (
+  (text-stroke: 1px var(--main-background)) or
+    (-webkit-text-stroke: 1px var(--main-background))
+) {
+  .img_text {
+    -webkit-text-stroke: 1px var(--main-background);
+    text-stroke: 1px var(--main-background);
+    text-shadow: none;
+  }
 }
