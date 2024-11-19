@@ -249,15 +249,6 @@
   border: 2px solid var(--main-color);
 }
 
-.like-icon.is-liked .main-body {
-  fill: var(--sparks);
-  transition: fill 0.3s 0.05s ease-out;
-}
-
-.like-icon.is-liked .core {
-  fill: var(--sparks);
-  transition: fill 0.3s 0.06s ease-out;
-}
 .like-icon.is-liked .contour {
   fill: var(--sparks);
   transition: fill 0.3s 0.06s ease-out;
